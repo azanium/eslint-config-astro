@@ -39,13 +39,14 @@ module.exports = {
     }],
 
     // require trailing commas in multiline object literals
-    'comma-dangle': ['error', {
+    /* 'comma-dangle': ['error', {
       arrays: 'always-multiline',
       objects: 'always-multiline',
       imports: 'always-multiline',
       exports: 'always-multiline',
       functions: 'always-multiline',
-    }],
+    }], */
+    'comma-dangle': 0,
 
     // enforce spacing before and after comma
     'comma-spacing': ['error', { before: false, after: true }],

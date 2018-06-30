@@ -209,7 +209,7 @@
     // bad
     const obj = {
       id: 5,
-      name: 'San Francisco',
+      name: 'San Francisco'
     };
     obj[getKey('enabled')] = true;
 
@@ -217,7 +217,7 @@
     const obj = {
       id: 5,
       name: 'San Francisco',
-      [getKey('enabled')]: true,
+      [getKey('enabled')]: true
     };
     ```
 
@@ -240,7 +240,7 @@
 
       addValue(value) {
         return atom.value + value;
-      },
+      }
     };
     ```
 
@@ -254,12 +254,12 @@
 
     // bad
     const obj = {
-      lukeSkywalker: lukeSkywalker,
+      lukeSkywalker: lukeSkywalker
     };
 
     // good
     const obj = {
-      lukeSkywalker,
+      lukeSkywalker
     };
     ```
 
@@ -289,7 +289,7 @@
       episodeOne: 1,
       twoJediWalkIntoACantina: 2,
       episodeThree: 3,
-      mayTheFourth: 4,
+      mayTheFourth: 4
     };
     ```
 
@@ -303,14 +303,14 @@
     const bad = {
       'foo': 3,
       'bar': 4,
-      'data-blah': 5,
+      'data-blah': 5
     };
 
     // good
     const good = {
       foo: 3,
       bar: 4,
-      'data-blah': 5,
+      'data-blah': 5
     };
     ```
 
@@ -476,17 +476,17 @@
     ```javascript
     // bad
     const arr = [
-      [0, 1], [2, 3], [4, 5],
+      [0, 1], [2, 3], [4, 5]
     ];
 
     const objectInArray = [{
-      id: 1,
+      id: 1
     }, {
-      id: 2,
+      id: 2
     }];
 
     const numberInArray = [
-      1, 2,
+      1, 2
     ];
 
     // good
@@ -494,16 +494,16 @@
 
     const objectInArray = [
       {
-        id: 1,
+        id: 1
       },
       {
-        id: 2,
+        id: 2
       },
     ];
 
     const numberInArray = [
       1,
-      2,
+      2
     ];
     ```
 
@@ -923,7 +923,7 @@
     function foo(
       bar,
       baz,
-      quux,
+      quux
     ) {
       // ...
     }
@@ -937,7 +937,7 @@
     console.log(
       foo,
       bar,
-      baz,
+      baz
     );
     ```
 
@@ -1020,7 +1020,7 @@
     // bad
     ['get', 'post', 'put'].map(httpMethod => Object.prototype.hasOwnProperty.call(
         httpMagicObjectWithAVeryLongName,
-        httpMethod,
+        httpMethod
       )
     );
 
@@ -1028,7 +1028,7 @@
     ['get', 'post', 'put'].map(httpMethod => (
       Object.prototype.hasOwnProperty.call(
         httpMagicObjectWithAVeryLongName,
-        httpMethod,
+        httpMethod
       )
     ));
     ```
@@ -1336,7 +1336,7 @@
     // good
     import foo, {
       named1,
-      named2,
+      named2
     } from 'foo';
     ```
 
@@ -1402,7 +1402,7 @@
       longNameB,
       longNameC,
       longNameD,
-      longNameE,
+      longNameE
     } from 'path';
     ```
 
@@ -1545,7 +1545,7 @@
     ```javascript
     const luke = {
       jedi: true,
-      age: 28,
+      age: 28
     };
 
     // bad
@@ -1561,7 +1561,7 @@
     ```javascript
     const luke = {
       jedi: true,
-      age: 28,
+      age: 28
     };
 
     function getProp(prop) {
@@ -2863,7 +2863,7 @@
     const story = [
       once,
       upon,
-      aTime,
+      aTime
     ];
 
     // bad
@@ -2879,104 +2879,8 @@
       firstName: 'Ada',
       lastName: 'Lovelace',
       birthYear: 1815,
-      superPower: 'computers',
+      superPower: 'computers'
     };
-    ```
-
-  <a name="commas--dangling"></a><a name="19.2"></a>
-  - [20.2](#commas--dangling) Additional trailing comma: **Yup.** eslint: [`comma-dangle`](https://eslint.org/docs/rules/comma-dangle.html)
-
-    > Why? This leads to cleaner git diffs. Also, transpilers like Babel will remove the additional trailing comma in the transpiled code which means you don’t have to worry about the [trailing comma problem](https://github.com/airbnb/javascript/blob/es5-deprecated/es5/README.md#commas) in legacy browsers.
-
-    ```diff
-    // bad - git diff without trailing comma
-    const hero = {
-         firstName: 'Florence',
-    -    lastName: 'Nightingale'
-    +    lastName: 'Nightingale',
-    +    inventorOf: ['coxcomb chart', 'modern nursing']
-    };
-
-    // good - git diff with trailing comma
-    const hero = {
-         firstName: 'Florence',
-         lastName: 'Nightingale',
-    +    inventorOf: ['coxcomb chart', 'modern nursing'],
-    };
-    ```
-
-    ```javascript
-    // bad
-    const hero = {
-      firstName: 'Dana',
-      lastName: 'Scully'
-    };
-
-    const heroes = [
-      'Batman',
-      'Superman'
-    ];
-
-    // good
-    const hero = {
-      firstName: 'Dana',
-      lastName: 'Scully',
-    };
-
-    const heroes = [
-      'Batman',
-      'Superman',
-    ];
-
-    // bad
-    function createHero(
-      firstName,
-      lastName,
-      inventorOf
-    ) {
-      // does nothing
-    }
-
-    // good
-    function createHero(
-      firstName,
-      lastName,
-      inventorOf,
-    ) {
-      // does nothing
-    }
-
-    // good (note that a comma must not appear after a "rest" element)
-    function createHero(
-      firstName,
-      lastName,
-      inventorOf,
-      ...heroArgs
-    ) {
-      // does nothing
-    }
-
-    // bad
-    createHero(
-      firstName,
-      lastName,
-      inventorOf
-    );
-
-    // good
-    createHero(
-      firstName,
-      lastName,
-      inventorOf,
-    );
-
-    // good (note that a comma must not appear after a "rest" element)
-    createHero(
-      firstName,
-      lastName,
-      inventorOf,
-      ...heroArgs
-    );
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -3161,7 +3065,7 @@
     }
 
     const bad = new user({
-      name: 'nope',
+      name: 'nope'
     });
 
     // good
@@ -3172,7 +3076,7 @@
     }
 
     const good = new User({
-      name: 'yup',
+      name: 'yup'
     });
     ```
 

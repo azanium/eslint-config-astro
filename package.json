@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-astro",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Astro JS ESLint config",
   "main": "index.js",
   "scripts": {
